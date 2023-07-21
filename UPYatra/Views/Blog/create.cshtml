@@ -1,0 +1,35 @@
+﻿@addTagHelper "*,Microsoft.AspNetCore.Mvc.TagHelpers" 
+@model UPYatra.Models.Post
+@{
+    Layout = "_Layout";
+}
+<h1>Create blog post</h1>
+
+<fieldset>
+    @using (Html.BeginForm())
+    {
+        <!--<form asp-action="Create" asp-controller="Blog">-->
+        @Html.ValidationSummary()
+        <!--<div asp-validation-summary="ModelOnly" class="input-validation-error"></div>-->
+        <p>
+            @Html.LabelFor(x => x.Title)
+            @Html.EditorFor(x => x.Title)
+            @Html.ValidationMessageFor(x => x.Title)
+            <!--<label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control" placeholder="Blog post title"/>
+            <span asp-validation-for="Title"></span>-->
+        </p>
+        <p>
+            @Html.LabelFor(x => x.Body)
+            @Html.TextAreaFor(x => x.Body)
+            @Html.ValidationMessageFor(x => x.Body)
+            <!--<label asp-for="Body"></label>
+            <input asp-for="Body" class="form-control" placeholder="Blog post content"/>
+            <span asp-validation-for="Body"></span>-->
+        </p>
+        <p>
+            <button type="submit">Create post</button>
+        </p>
+    }
+    <!--</form>-->
+</fieldset>
